@@ -4,7 +4,7 @@ import worker from '../cloudflare/worker.mjs';
 const origin='https://uni2412.github.io';
 const env={RESEND_API_KEY:'test-not-a-secret',MAIL_FROM:'Unisafer <candidaturas@unisafereducacional.com.br>',TURNSTILE_SECRET_KEY:'fake',ALLOWED_ORIGINS:origin};
 function candidate(){
-  const keys=['nome','email','telefone','cidade','experiencia','inicio','dedicacao','motivacao','responsabilidade','aprendizado','organizacao','feedback','lead_sumiço','objecao','etica','sem_vendas','permanencia','treinamento','modelo','interesse','duvidas'];
+  const keys=['nome','email','telefone','cidade','experiencia','inicio','dedicacao','motivacao','responsabilidade','aprendizado','organizacao','feedback','lead_sumiço','objecao','etica','sem_vendas','permanencia','treinamento','interesse','duvidas'];
   const a=Object.fromEntries(keys.map(k=>[k,'Exemplo de resposta para '+k]));
   Object.assign(a,{nome:'João da Silva',email:'joao@example.com',telefone:'11987654321'});
   return {answers:a,privacyAccepted:true,website:'',submissionId:'a5d535c5-f172-4c55-a842-4c451994fb7d',submittedAt:new Date().toISOString(),turnstileToken:'ok',pdfBase64:'JVBERi0'+('A'.repeat(512))};
@@ -20,7 +20,7 @@ test('answers allowed preflight without exposing key',async()=>{
  const r=await worker.fetch(request(undefined,origin,'OPTIONS'),env);
  assert.equal(r.status,200);assert.equal(r.headers.get('access-control-allow-origin'),origin);
 });
-test('valid candidate sends all 21 answers and PDF to correct inbox',async()=>{
+test('valid candidate sends all 20 answers and PDF to correct inbox',async()=>{
  let calls=[];const orig=globalThis.fetch;
  globalThis.fetch=async(url,options)=>{
   calls.push({url,options});
