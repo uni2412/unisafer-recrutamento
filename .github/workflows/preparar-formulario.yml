@@ -1,0 +1,57 @@
+name: Preparar formulário Unisafer
+on:
+  push:
+    paths:
+      - .github/workflows/preparar-formulario.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Extrair projeto existente e configurar deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP="unisafer-github-cloudflare-resend-pronto.zip"
+          test -f "$ZIP"
+          test "$(git hash-object "$ZIP")" = "4ec5eb687cea5119a3beed5bb8b3542ff01fe2dc"
+          TMP="$(mktemp -d)"
+          unzip -q "$ZIP" -d "$TMP"
+          for path in index.html cloudflare/worker.mjs assets/unisafer-logo.png tests/worker.test.mjs; do
+            test -f "$TMP/$path"
+          done
+          cp "$TMP/index.html" ./index.html
+          cp -R "$TMP/assets" ./assets
+          cp -R "$TMP/cloudflare" ./cloudflare
+          cp -R "$TMP/tests" ./tests
+          cp "$TMP/README.md" ./README.md
+          cat > wrangler.toml <<'TOML'
+          name = "unisafer-recrutamento"
+          main = "cloudflare/worker.mjs"
+          compatibility_date = "2026-11-23"
+          workers_dev = true
+          TOML
+          touch .nojekyll
+          cat > .gitignore <<'IGNORE'
+          .env
+          .env.*
+          !.env.example
+          node_modules/
+          .wrangler/
+          IGNORE
+          rm "$ZIP"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "fix: extrair formulário e configurar Cloudflare Worker"
+            git push
+          fi
