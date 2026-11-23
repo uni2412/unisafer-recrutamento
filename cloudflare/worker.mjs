@@ -9,7 +9,7 @@ const FIELDS=[
  ['Feedback','feedback',1300,true],['Lead sem resposta','lead_sumiço',900,true],
  ['Objeção','objecao',900,true],['Ética','etica',900,true],
  ['Sem vendas','sem_vendas',1100,true],['Permanência','permanencia',950,true],
- ['Treinamentos','treinamento',100,true],['Modelo de contratação','modelo',150,true],
+ ['Treinamentos','treinamento',100,true],
  ['Próximos passos','interesse',150,true],['Observações','duvidas',1000,false]
 ];
 const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -45,8 +45,10 @@ function response(payload,status,origin){return new Response(JSON.stringify(payl
 export default {
  async fetch(req,env){
    const origin=req.headers.get('Origin')||'';
-   const allowed=(env.ALLOWED_ORIGINS||'').split(',').map(x=>x.trim()).filter(Boolean);
-   if(!origin||!allowed.includes(origin))return response({ok:false,error:'Origem não autorizada.'},403,null);
+   // A página oficial no GitHub Pages é autorizada mesmo se a variável opcional estiver ausente.
+   // Outras origens precisam ser adicionadas explicitamente em ALLOWED_ORIGINS.
+   const allowed=new Set(['https://uni2412.github.io',...(env.ALLOWED_ORIGINS||'').split(',').map(x=>x.trim()).filter(Boolean)]);
+   if(!origin||!allowed.has(origin))return response({ok:false,error:'Origem não autorizada.'},403,null);
    if(req.method==='OPTIONS')return response({ok:true},200,origin);
    if(req.method!=='POST')return response({ok:false,error:'Método não permitido.'},405,origin);
    if(!req.headers.get('content-type')?.includes('application/json'))return response({ok:false,error:'Formato inválido.'},415,origin);
