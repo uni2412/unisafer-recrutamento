@@ -2,3 +2,11 @@ name = "unisafer-recrutamento"
 main = "cloudflare/worker.mjs"
 compatibility_date = "2026-11-23"
 workers_dev = true
+
+# Não remover variáveis cadastradas pelo painel em novos deploys.
+keep_vars = true
+
+# Configurações públicas: não colocar chaves secretas neste arquivo.
+[vars]
+MAIL_FROM = "Unisafer Selecao <candidaturas@unisafereducacional.com.br>"
+ALLOWED_ORIGINS = "https://uni2412.github.io"
