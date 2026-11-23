@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="theme-color" content="#122248"><title>Pré-seleção comercial | Unisafer</title><style>
+:root{--navy:#14254a;--blue:#24459a;--gold:#c69a39;--ink:#1e2e47;--muted:#667186;--border:#dce4ef;--fog:#f5f7fb;--white:#fff;--red:#b33737;--shadow:0 20px 55px rgba(16,35,76,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#f7f9fd,#edf2f9 65%,#f6f7fb);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}body:before{content:"";position:fixed;left:0;right:0;top:0;height:7px;background:linear-gradient(90deg,var(--navy),#284da4,var(--gold));z-index:10}
+.wrap{width:min(980px,calc(100% - 32px));margin:36px auto 48px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}.brand{width:250px;max-width:65%;height:auto;display:block}.flag{font-size:.72rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);border:1px solid #e8dbb9;padding:8px 13px;border-radius:99px;background:#fff}
+.shell{background:var(--white);border:1px solid #e1e7f0;border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.hero{padding:39px 44px 30px;border-bottom:1px solid #ecf0f5;background:radial-gradient(circle at 96% 0%,#f7f0dc 0,transparent 29%),linear-gradient(150deg,#fff 55%,#f8fafc)}.eyebrow{display:inline-flex;align-items:center;gap:7px;letter-spacing:.11em;font-size:.74rem;color:var(--blue);font-weight:800;text-transform:uppercase}.eyebrow:before{content:"";width:18px;height:3px;background:var(--gold);border-radius:3px}.hero h1{font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.13;letter-spacing:-.045em;margin:12px 0 14px;color:var(--navy);max-width:700px}.hero p{max-width:700px;font-size:1.01rem;color:var(--muted);margin:0}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.chip{font-size:.81rem;background:#f0f4fb;border:1px solid #e4ebf8;color:#284272;padding:7px 11px;border-radius:100px;font-weight:650}.chip.gold{background:#fdf6e7;border-color:#f2e4c8;color:#8a661c}
+.progress-area{padding:22px 44px 0}.step-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}.progress-label{font-size:.8rem;letter-spacing:.02em;font-weight:750;color:var(--blue)}.progress-count{font-size:.8rem;color:var(--muted)}.track{height:8px;border-radius:20px;background:#e9eef5;overflow:hidden}.bar{height:100%;width:33.333%;background:linear-gradient(90deg,var(--navy),var(--blue),var(--gold));border-radius:20px;transition:width .3s ease}
+.content{padding:33px 44px 35px}.step{display:none}.step.active{display:block}.sectionhead{margin:0 0 24px}.sectionhead h2{margin:0 0 5px;font-size:1.55rem;letter-spacing:-.026em;color:var(--navy)}.sectionhead p{margin:0;color:var(--muted);font-size:.92rem}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.field{margin:0 0 23px}.field:last-child{margin-bottom:0}.field.full{grid-column:1/-1}.field label.main{font-weight:750;display:block;margin-bottom:9px;color:var(--ink);font-size:.95rem}.req{color:var(--gold);margin-left:2px}.hint{display:block;color:var(--muted);font-size:.79rem;margin-top:-3px;margin-bottom:10px}input[type=text],input[type=email],input[type=tel],textarea,select{font:inherit;color:var(--ink);width:100%;border:1.5px solid var(--border);border-radius:12px;padding:13px 14px;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s}textarea{min-height:113px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:#4767b1;box-shadow:0 0 0 4px rgba(41,76,155,.10)}input::placeholder,textarea::placeholder{color:#a1a9b7}.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.opt{display:flex;align-items:flex-start;gap:10px;background:#f9fbff;border:1.5px solid #e2e8f1;padding:13px;border-radius:12px;cursor:pointer;line-height:1.4;min-height:52px;font-size:.91rem}.opt:has(input:checked){background:#edf3ff;border-color:#5b75b3}.opt input{margin-top:3px;accent-color:var(--blue);flex-shrink:0}.note{background:#f8f9fc;border-left:3px solid var(--gold);padding:13px 16px;border-radius:5px 11px 11px 5px;font-size:.86rem;color:#53647e;margin-top:5px}.nav{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:30px;padding-top:22px;border-top:1px solid #e9edf4}.nav .right{margin-left:auto}.button{border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;padding:13px 18px;border-radius:11px;font-size:.94rem;line-height:1.2;font-family:inherit;font-weight:700;white-space:normal;text-align:center;transition:transform .1s,background .1s}.button:hover{transform:translateY(-1px)}.button.primary{color:#fff;background:linear-gradient(100deg,var(--navy),var(--blue));box-shadow:0 7px 14px rgba(26,50,101,.13)}.button.secondary{color:#223867;background:#eff3fa}.button.goldbtn{color:#1b2941;background:linear-gradient(100deg,#edc962,#e7b449)}.fineprint{padding:0 44px 28px;color:#78849a;font-size:.79rem}.fineprint a{color:#24459a}.result{display:none}.result.visible{display:block}.success{display:flex;align-items:flex-start;gap:13px;background:#eef7f0;border:1px solid #b9dfc3;border-radius:14px;padding:17px 20px;margin-bottom:22px;color:#1e6532}.success strong{display:block}.result h2{color:var(--navy);font-size:1.6rem;margin:0 0 8px}.result p{color:var(--muted);margin:0 0 20px}.summary{background:#f7f9fd;border:1px solid #e2e8f1;border-radius:13px;white-space:pre-wrap;overflow-wrap:anywhere;padding:20px;max-height:350px;overflow:auto;font-size:.86rem;line-height:1.65}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.actions .button{flex:1 1 170px}.instructions{background:#fff8e8;border:1px solid #f2e1b5;padding:15px 19px;border-radius:12px;font-size:.9rem;margin-top:20px}.endfooter{text-align:center;color:#8b98ad;font-size:.76rem;margin-top:20px}.error{color:var(--red);font-size:.83rem;margin-top:7px;display:none}
+@media(max-width:680px){.wrap{width:min(100% - 18px,600px);margin:18px auto 28px}.brand{width:188px}.flag{font-size:.63rem;padding:7px 9px}.shell{border-radius:17px}.hero{padding:27px 23px 25px}.hero h1{font-size:1.9rem}.hero p{font-size:.91rem}.progress-area{padding:20px 22px 0}.content{padding:24px 22px 27px}.fields{grid-template-columns:1fr;gap:0}.opts{grid-template-columns:1fr}.fineprint{padding:0 22px 25px}.button{padding:13px 15px}.chips{gap:7px}.chip{font-size:.73rem;padding:6px 10px}.nav{gap:7px}}
+@media print{body{background:#fff}.topbar,.hero,.progress-area,.step,.nav,.fineprint,.endfooter,.actions,.instructions{display:none!important}.wrap{margin:0;width:100%}.shell{border:0;box-shadow:none}.content{padding:0}.result.visible{display:block!important}.summary{max-height:none;overflow:visible;border:none;padding:0;background:white}.success{display:none}}
+
+/* Experiência humana e acolhedora: mantém o design system aprovado */
+.welcome-intro{font-size:1.02rem;color:var(--ink);line-height:1.75;margin:0 0 21px}
+.welcome-intro strong{color:var(--navy)}
+.human-note{border:1px solid #eadfbc;border-radius:18px;padding:25px 28px;background:linear-gradient(130deg,#fffdfa,#fcf7e9);margin:23px 0 22px;position:relative}
+.human-note:before{content:'“';position:absolute;top:6px;right:21px;font:700 5rem Georgia,serif;color:#ead8aa;opacity:.8;line-height:1}
+.human-note h3{font-size:1.12rem;margin:0 0 14px;color:var(--navy);letter-spacing:-.01em;position:relative;z-index:1}
+.human-note p{font-size:.96rem;line-height:1.75;color:#43516a;max-width:690px;margin:0 0 10px;position:relative;z-index:1}
+.human-note p:last-child{margin:0}
+.promise{display:flex;gap:11px;align-items:flex-start;background:#eff4fc;border-radius:13px;padding:15px 17px;font-size:.91rem;color:#344e79;margin-top:14px}
+.promise .mark{font-size:1.2rem;color:var(--blue);line-height:1.4}
+.expectations{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.expectation{border:1px solid #e2e9f4;border-radius:14px;background:#f7f9fd;padding:16px}
+.expectation strong{display:block;color:var(--navy);font-size:.91rem;margin-bottom:5px}
+.expectation span{display:block;color:var(--muted);font-size:.82rem}
+.welcome-cta{margin-top:25px;display:flex;justify-content:flex-end}
+.align-note{font-size:.86rem;color:#667287;background:#f8fafc;border-radius:11px;border:1px solid #e4eaf3;padding:13px 15px;margin:6px 0 22px}
+.question-tag{display:inline-block;color:#8a661c;background:#fbf4e5;padding:3px 9px;border-radius:7px;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin:0 0 9px}
+.field .support{font-size:.82rem;color:var(--muted);margin-top:-5px;margin-bottom:10px}
+.mini-disclaimer{font-size:.79rem;color:var(--muted);margin:18px 0 0}
+@media(max-width:680px){.expectations{grid-template-columns:1fr;gap:8px}.expectation{padding:12px 14px}.human-note{padding:22px 19px}.human-note p{font-size:.91rem}.welcome-cta .button{width:100%}}
+</style></head><body>
+<div class="wrap">
+ <div class="topbar"><img class="brand" alt="Logo da Unisafer Consultoria Educacional" src="assets/unisafer-logo.png"><span class="flag">Processo seletivo</span></div>
+ <main class="shell">
+  <header class="hero">
+   <span class="eyebrow">Oportunidade comercial</span>
+   <h1>Talvez o próximo capítulo da sua história comece aqui.</h1>
+   <p>Estamos conhecendo pessoas para crescer com a Unisafer. Experiência em vendas pode ajudar, mas não é requisito: valorizamos iniciativa, responsabilidade e vontade de aprender.</p>
+   <div class="chips"><span class="chip">100% remoto</span><span class="chip">Horários flexíveis</span><span class="chip">Treinamento</span><span class="chip gold">Prestação autônoma de serviços</span></div>
+  </header>
+  <div class="progress-area" id="progressArea" hidden><div class="step-head"><span class="progress-label" id="stepName">01 · Seu contato</span><span class="progress-count" id="stepCount">Etapa 1 de 4</span></div><div class="track"><div class="bar" id="progressBar" style="width:25%"></div></div></div>
+  <div class="content">
+   <form id="form" novalidate>
+    <section class="step active" data-step="0" aria-label="Boas-vindas">
+      <div class="sectionhead"><span class="question-tag">Antes de começar</span><h2>Tem espaço para você ser você.</h2><p>Leia esta mensagem antes de responder às perguntas.</p></div>
+      <div class="human-note">
+        <h3>Uma mensagem sincera da nossa equipe 💙</h3>
+        <p><strong>Não estamos procurando respostas perfeitas. Queremos conhecer a pessoa por trás do currículo.</strong></p>
+        <p>Responda com suas palavras, do seu jeito. Não se preocupe com erros de português, frases simples ou falta de experiência. Isso não define sua capacidade.</p>
+        <p>Você não precisa escrever como uma inteligência artificial nem tentar adivinhar o que gostaríamos de ouvir. Conte situações reais, até quando algo não deu certo. O que nos interessa é entender suas atitudes, seu jeito de pensar e sua vontade de aprender.</p>
+        <p><strong>A única coisa que pedimos é sinceridade. Seja você mesmo(a).</strong></p>
+      </div>
+      <div class="promise"><span class="mark">✦</span><div>Não há respostas “certas” ou “erradas” nas perguntas sobre sua história. Avaliaremos exemplos e atitudes relacionadas à oportunidade, não ortografia, idade ou situação financeira.</div></div>
+      <div class="expectations">
+        <div class="expectation"><strong>Sem pegadinhas</strong><span>Queremos entender você, não fazer um teste de personalidade.</span></div>
+        <div class="expectation"><strong>No seu ritmo</strong><span>Use exemplos reais; respostas curtas e sinceras são bem-vindas.</span></div>
+        <div class="expectation"><strong>Envio simples</strong><span>Ao concluir, suas respostas serão enviadas automaticamente à Unisafer.</span></div>
+      </div>
+      <p class="mini-disclaimer">O preenchimento não garante contratação. Os dados serão utilizados somente para avaliar sua candidatura e entrar em contato. Não compartilhe informações íntimas ou sensíveis.</p>
+      <div class="welcome-cta"><button class="button primary" type="button" data-next>Quero começar →</button></div>
+    </section>
+    <section class="step" data-step="1" aria-label="Seus dados e disponibilidade">
+     <div class="sectionhead"><span class="question-tag">Etapa 01</span><h2>Primeiro, vamos nos conhecer.</h2><p>Dados de contato e algumas informações práticas. Nada de perguntas sobre a sua vida pessoal.</p></div>
+     <div class="fields">
+       <div class="field full"><label class="main" for="nome">Nome completo <span class="req">*</span></label><input id="nome" name="nome" type="text" autocomplete="name" maxlength="90" required placeholder="Seu nome e sobrenome"></div>
+       <div class="field"><label class="main" for="email">E-mail <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="110" required placeholder="seuemail@exemplo.com"></div>
+       <div class="field"><label class="main" for="telefone">WhatsApp com DDD <span class="req">*</span></label><input id="telefone" name="telefone" type="tel" autocomplete="tel" minlength="10" maxlength="22" required placeholder="(11) 99999-9999"></div>
+       <div class="field full"><label class="main" for="cidade">Cidade e estado <span class="req">*</span></label><input id="cidade" name="cidade" type="text" maxlength="90" required placeholder="Ex.: São Paulo / SP"></div>
+       <div class="field full"><label class="main">Você já trabalhou com vendas ou atendimento? <span class="req">*</span></label><div class="opts">
+          <label class="opt"><input type="radio" name="experiencia" value="Já trabalhei com vendas" required>Já trabalhei com vendas</label>
+          <label class="opt"><input type="radio" name="experiencia" value="Já trabalhei com atendimento">Já trabalhei com atendimento</label>
+          <label class="opt"><input type="radio" name="experiencia" value="Nunca trabalhei nessas áreas, mas quero aprender">Nunca trabalhei nessas áreas, mas quero aprender</label>
+          <label class="opt"><input type="radio" name="experiencia" value="Tenho experiência em outras áreas">Tenho experiência em outras áreas</label>
+       </div></div>
+       <div class="field full"><label class="main">Caso avancemos, quando você poderia iniciar uma parceria? <span class="req">*</span></label><div class="opts">
+          <label class="opt"><input type="radio" name="inicio" value="Em até 7 dias" required>Em até 7 dias</label>
+          <label class="opt"><input type="radio" name="inicio" value="Entre 8 e 15 dias">Entre 8 e 15 dias</label>
+          <label class="opt"><input type="radio" name="inicio" value="Entre 16 e 30 dias">Entre 16 e 30 dias</label>
+          <label class="opt"><input type="radio" name="inicio" value="Preciso de mais de 30 dias ou combinar">Mais de 30 dias / a combinar</label>
+       </div></div>
+       <div class="field full"><label class="main">Pensando em sua rotina atual, quanto tempo você acredita que conseguiria dedicar à atividade comercial por semana? <span class="req">*</span></label><span class="hint">É uma estimativa sua para entendermos a compatibilidade com o trabalho, não uma jornada imposta pela Unisafer.</span><div class="opts">
+          <label class="opt"><input type="radio" name="dedicacao" value="Até 10 horas por semana" required>Até 10 horas</label>
+          <label class="opt"><input type="radio" name="dedicacao" value="De 11 a 20 horas por semana">De 11 a 20 horas</label>
+          <label class="opt"><input type="radio" name="dedicacao" value="De 21 a 30 horas por semana">De 21 a 30 horas</label>
+          <label class="opt"><input type="radio" name="dedicacao" value="Mais de 30 horas por semana">Mais de 30 horas</label>
+       </div></div>
+     </div>
+     <div class="note"><strong>Para respeitar seu tempo:</strong> a proposta inicial é de prestação autônoma de serviços comerciais (não CLT), com R$ 1.000 mensais + R$ 50 por matrícula efetivada. A partir do quarto mês, há adicional mensal de R$ 200 enquanto a parceria continuar. Condições completas serão apresentadas antes de contratar.</div>
+     <div class="nav"><button class="button secondary" type="button" data-prev>← Voltar</button><button class="button primary right" type="button" data-next>Continuar →</button></div>
+    </section>
+    <section class="step" data-step="2" aria-label="Motivação e atitudes">
+     <div class="sectionhead"><span class="question-tag">Etapa 02</span><h2>Queremos entender suas atitudes.</h2><p>Não precisa impressionar. Um exemplo simples e verdadeiro vale muito.</p></div>
+     <div class="field"><label class="main" for="motivacao">1. O que nessa oportunidade fez você enviar seu currículo? Por que ela faz sentido para você neste momento? <span class="req">*</span></label><textarea id="motivacao" name="motivacao" required minlength="20" maxlength="1000" placeholder="Conte o que despertou seu interesse, com suas palavras."></textarea></div>
+     <div class="field"><label class="main" for="responsabilidade">2. Conte uma situação real em que você assumiu uma responsabilidade e levou até o fim, mesmo com dificuldades. <span class="req">*</span></label><span class="hint">Pode ser no trabalho, nos estudos ou em um projeto. O que você fez e qual foi o resultado?</span><textarea id="responsabilidade" name="responsabilidade" required minlength="30" maxlength="1200" placeholder="O desafio era... Eu fiz... O resultado foi..."></textarea></div>
+     <div class="field"><label class="main" for="aprendizado">3. Conte uma coisa que você precisou aprender e não sabia fazer. Como conseguiu aprender? <span class="req">*</span></label><textarea id="aprendizado" name="aprendizado" required minlength="25" maxlength="1100" placeholder="Pode ser algo simples. Queremos conhecer seu jeito de aprender."></textarea></div>
+     <div class="field"><label class="main" for="organizacao">4. Sem horário fixo, como você se organizaria para atender clientes, retornar mensagens e acompanhar oportunidades? <span class="req">*</span></label><textarea id="organizacao" name="organizacao" required minlength="25" maxlength="1100" placeholder="O que você faria na prática para não deixar clientes esquecidos?"></textarea></div>
+     <div class="field"><label class="main" for="feedback">5. Fale sobre uma vez em que você percebeu que precisava melhorar alguma atitude ou recebeu uma crítica. O que mudou depois? <span class="req">*</span></label><textarea id="feedback" name="feedback" required minlength="25" maxlength="1100" placeholder="Não precisa ser um grande acontecimento. Conte o que aprendeu."></textarea></div>
+     <div class="nav"><button class="button secondary" type="button" data-prev>← Voltar</button><button class="button primary right" type="button" data-next>Continuar →</button></div>
+    </section>
+    <section class="step" data-step="3" aria-label="Situações comerciais">
+     <div class="sectionhead"><span class="question-tag">Etapa 03</span><h2>Agora, algumas situações reais.</h2><p>Imagine que está atendendo pessoas interessadas em cursos. Não esperamos que você conheça os produtos.</p></div>
+     <div class="field"><label class="main" for="lead_sumiço">6. Um interessado pede o preço de um curso. Você responde e ele para de falar. Que mensagem enviaria depois? <span class="req">*</span></label><textarea id="lead_sumiço" name="lead_sumiço" required minlength="20" maxlength="900" placeholder="Escreva como se fosse uma mensagem de WhatsApp."></textarea></div>
+     <div class="field"><label class="main" for="objecao">7. Uma pessoa diz: “Gostei do curso, mas vou pensar e depois te aviso”. Como você continuaria a conversa? <span class="req">*</span></label><textarea id="objecao" name="objecao" required minlength="20" maxlength="900" placeholder="O que você responderia, sem pressionar nem abandonar o cliente?"></textarea></div>
+     <div class="field"><label class="main" for="etica">8. Um aluno pergunta se um curso dá direito a determinado concurso público. Você ainda não sabe a resposta. O que faria? <span class="req">*</span></label><textarea id="etica" name="etica" required minlength="20" maxlength="900" placeholder="Conte o que falaria ao interessado e o que faria em seguida."></textarea></div>
+     <div class="field"><label class="main" for="sem_vendas">9. A Unisafer fornece oportunidades de atendimento, mas você passa uma semana sem fechar matrículas. O que faria para tentar mudar o resultado? <span class="req">*</span></label><textarea id="sem_vendas" name="sem_vendas" required minlength="25" maxlength="1100" placeholder="Descreva 2 ou 3 atitudes concretas que tomaria."></textarea></div>
+     <div class="nav"><button class="button secondary" type="button" data-prev>← Voltar</button><button class="button primary right" type="button" data-next>Continuar →</button></div>
+    </section>
+    <section class="step" data-step="4" aria-label="Alinhamento e futuro">
+     <div class="sectionhead"><span class="question-tag">Etapa 04</span><h2>Por último: alinhamento e futuro.</h2><p>É importante que a parceria faça sentido para você também.</p></div>
+     <div class="field"><label class="main" for="permanencia">10. O que faria você querer continuar e crescer com uma empresa pelos próximos dois anos? <span class="req">*</span></label><textarea id="permanencia" name="permanencia" required minlength="20" maxlength="950" placeholder="O que você espera aprender, conquistar e encontrar no ambiente profissional?"></textarea></div>
+     <div class="field"><label class="main">11. Você conseguiria participar de treinamentos presenciais pontuais na Consolação (SP), combinados antes e com deslocamento custeado? <span class="req">*</span></label><div class="opts">
+       <label class="opt"><input type="radio" name="treinamento" value="Sim, em geral" required>Sim, em geral</label>
+       <label class="opt"><input type="radio" name="treinamento" value="Depende da data">Depende da data</label>
+       <label class="opt"><input type="radio" name="treinamento" value="Não consigo participar presencialmente">Não consigo participar presencialmente</label>
+     </div></div>
+     <div class="field"><label class="main">12. Considerando que a proposta é uma prestação autônoma de serviços, sem CLT, como você se sente em relação a esse formato? <span class="req">*</span></label><div class="opts">
+       <label class="opt"><input type="radio" name="modelo" value="Tenho interesse nesse modelo" required>Tenho interesse nesse modelo</label>
+       <label class="opt"><input type="radio" name="modelo" value="Tenho interesse, mas preciso esclarecer detalhes">Tenho interesse, mas preciso esclarecer detalhes</label>
+       <label class="opt"><input type="radio" name="modelo" value="Prefiro outro modelo de contratação">Prefiro outro modelo de contratação</label>
+     </div></div>
+     <div class="field"><label class="main">13. Depois de conhecer melhor a oportunidade, qual é seu nível de interesse em conversar com nossa equipe? <span class="req">*</span></label><div class="opts">
+       <label class="opt"><input type="radio" name="interesse" value="Quero conversar e conhecer os próximos passos" required>Quero conversar e conhecer os próximos passos</label>
+       <label class="opt"><input type="radio" name="interesse" value="Tenho interesse, mas ainda tenho dúvidas">Tenho interesse, mas ainda tenho dúvidas</label>
+       <label class="opt"><input type="radio" name="interesse" value="Acho que esta oportunidade não combina comigo">Acho que não combina comigo agora</label>
+     </div></div>
+     <div class="field"><label class="main" for="duvidas">14. Ficou alguma dúvida ou há algo sobre sua disponibilidade profissional que gostaria que soubéssemos? <span style="font-weight:400;color:var(--muted)">(opcional)</span></label><textarea id="duvidas" name="duvidas" maxlength="1000" placeholder="Você pode deixar em branco. Não precisa contar informações pessoais ou sensíveis."></textarea></div>
+     <div class="align-note">Obrigado por dedicar tempo a esta conversa. Suas respostas não precisam ser perfeitas — só precisam representar você. Revise e, ao finalizar, escolha como enviá-las à Unisafer.</div>
+     <div class="field" style="margin-top:22px"><label class="opt" style="display:flex;align-items:flex-start;gap:12px;background:#fffaf0;border-color:#e4d7b5">
+       <input id="privacyAccepted" type="checkbox" required style="margin-top:5px;accent-color:#24459a">
+       <span><strong>Estou ciente do uso dos meus dados.</strong> A Unisafer receberá minhas respostas por e-mail e guardará o PDF em armazenamento privado para avaliar minha candidatura e entrar em contato. Posso solicitar informações ou exclusão pelo e-mail contato@unisafereducacional.com.br.</span>
+     </label></div>
+     <div class="field" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none" aria-hidden="true"><label for="website">Deixe este campo em branco</label><input id="website" type="text" name="website" tabindex="-1" autocomplete="off"></div>
+     <div id="submitError" role="alert" aria-live="assertive" style="display:none;background:#fff1ef;color:#9e3832;border:1px solid #edb7b3;padding:13px 15px;border-radius:12px;margin:18px 0;"></div>
+     <div class="note" style="margin-top:14px">Para proteger as candidaturas de envios automáticos, confirme a verificação de segurança abaixo.</div>
+     <div id="turnstile-container" style="min-height:70px;margin:12px 0 4px;"></div>
+     <div class="nav"><button class="button secondary" type="button" data-prev>← Voltar</button><button class="button goldbtn right" type="button" id="finish">Concluir e enviar candidatura ✓</button></div>
+    </section>
+   </form>
+   <section class="result" id="result" aria-label="Candidatura concluída">
+     <div class="success"><span aria-hidden="true">✓</span><div><strong>Recebemos sua candidatura!</strong> Suas respostas foram registradas em PDF e o envio à equipe Unisafer foi aceito pelo serviço de e-mail.</div></div>
+     <h2>Obrigado por participar!</h2>
+     <p>Agora é com a nossa equipe. Os candidatos selecionados serão contatados pelos dados informados no formulário.</p>
+     <div class="instructions"><strong>Comprovante da candidatura:</strong> <span id="protocol"></span><br><strong>Destino:</strong> contato@unisafereducacional.com.br<br>O PDF da sua candidatura foi encaminhado à equipe. Não é necessário enviar novamente.</div>
+   </section>
+  </div>
+  <div class="fineprint">Privacidade: ao concluir, suas respostas são enviadas à Unisafer como um PDF anexado ao e-mail da equipe responsável. Os dados serão utilizados para análise desta candidatura e eventual contato. Evite incluir CPF, RG, informações bancárias, saúde, religião ou outros dados sensíveis. Solicitações sobre seus dados: contato@unisafereducacional.com.br. <strong>O envio só é concluído após a confirmação na tela; o PDF ficará arquivado na caixa de e-mail da Unisafer.</strong></div>
+ </main>
+ <div class="endfooter">Unisafer Consultoria Educacional • Pré-seleção comercial</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer></script>
+<script>
+/* ENDEREÇOS PÚBLICOS: edite somente após publicar o Worker e criar a chave pública Turnstile. */
+window.UNISAFER_CONFIG = {
+  workerUrl: "COLE_AQUI_A_URL_DO_WORKER",
+  turnstileSiteKey: "COLE_AQUI_A_SITE_KEY_DO_TURNSTILE"
+};
+</script>
+<script>
+(function(){
+ 'use strict';
+ const config=window.UNISAFER_CONFIG||{};
+ const form=document.getElementById('form');
+ const steps=[...document.querySelectorAll('.step')];
+ const result=document.getElementById('result');
+ const errorBox=document.getElementById('submitError');
+ const names=['Boas-vindas','01 · Seu contato','02 · Seu jeito de agir','03 · Situações comerciais','04 · Alinhamento'];
+ const fields=[
+  ['Nome completo','nome'],['E-mail','email'],['WhatsApp','telefone'],['Cidade e estado','cidade'],
+  ['Experiência profissional com vendas ou atendimento','experiencia'],
+  ['Quando poderia começar','inicio'],['Dedicação semanal estimada','dedicacao'],
+  ['1. Motivação para se candidatar agora','motivacao'],
+  ['2. Responsabilidade assumida até o fim','responsabilidade'],
+  ['3. Aprendizado de algo novo','aprendizado'],
+  ['4. Organização no trabalho remoto autônomo','organizacao'],
+  ['5. Como lida com feedback e mudanças','feedback'],
+  ['6. Mensagem para interessado que parou de responder','lead_sumiço'],
+  ['7. Resposta para "Vou pensar"','objecao'],
+  ['8. Atendimento quando não sabe resposta sobre concurso público','etica'],
+  ['9. Plano após uma semana sem matrículas','sem_vendas'],
+  ['10. Condições para querer crescer com a empresa','permanencia'],
+  ['11. Participação em treinamentos presenciais','treinamento'],
+  ['12. Interesse no modelo de prestação autônoma','modelo'],
+  ['13. Interesse nos próximos passos','interesse'],
+  ['14. Dúvidas ou observações adicionais','duvidas']
+ ];
+ let current=0,pendingPayload=null,sending=false,widgetId=null,token='';
+ function getValue(name){
+   const el=form.elements.namedItem(name);if(!el)return '';
+   if(typeof el.length==='number'&&!el.tagName){return [...el].find(x=>x.checked)?.value||''}
+   return el.value.trim();
+ }
+ function showError(message){errorBox.textContent=message;errorBox.style.display='block';errorBox.scrollIntoView({block:'center',behavior:'smooth'});}
+ function maybeRenderTurnstile(){
+   if(widgetId!==null||!window.turnstile)return;
+   if(!config.turnstileSiteKey||config.turnstileSiteKey.startsWith('COLE_AQUI'))return;
+   widgetId=window.turnstile.render('#turnstile-container',{
+      sitekey:config.turnstileSiteKey,action:'candidatura',
+      callback:t=>{token=t;errorBox.style.display='none';},
+      'expired-callback':()=>{token='';},'error-callback':()=>{token='';}
+   });
+ }
+ function show(i){
+   current=i;steps.forEach((s,j)=>s.classList.toggle('active',j===i));
+   result.classList.remove('visible');form.hidden=false;
+   const p=document.getElementById('progressArea');p.hidden=(i===0);
+   if(i>0){document.getElementById('stepName').textContent=names[i];document.getElementById('stepCount').textContent='Etapa '+i+' de 4';document.getElementById('progressBar').style.width=(i/4*100)+'%'}
+   if(i===4){maybeRenderTurnstile();}
+   window.scrollTo({top:0,behavior:'smooth'});
+ }
+ function validate(i=current){
+   const controls=[...steps[i].querySelectorAll('input,textarea,select')];
+   for(const el of controls){if(!el.checkValidity()){show(i);el.reportValidity();el.focus();return false}}
+   return true;
+ }
+ function safeFilename(name){return String(name).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 -]/gi,'').trim().replace(/\s+/g,'-').slice(0,55).toLowerCase()||'candidato'}
+ // WinAnsi é suportado pela fonte padrão. Símbolos fora desse conjunto são escritos como U+XXXX,
+ // evitando perder o conteúdo na exportação do PDF (inclusive emojis e outros alfabetos).
+ function pdfText(value){return String(value??'').replace(/[^\u0009\u000A\u000D\u0020-\u007E\u00A0-\u00FF\u20AC\u2013\u2014\u2018\u2019\u201C\u201D\u2026]/gu,ch=>'<U+'+ch.codePointAt(0).toString(16).toUpperCase()+'>');}
+ function buildPDF(payload){
+   if(!window.jspdf?.jsPDF)throw new Error('O gerador de PDF ainda não carregou. Verifique a internet e tente novamente.');
+   const doc=new window.jspdf.jsPDF({unit:'mm',format:'a4',compress:true});
+   const left=19,right=191, pageHeight=297, maxWidth=right-left;
+   let y=0, pageNumber=1;
+   function header(){doc.setFillColor(20,37,74);doc.rect(0,0,210,24,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(14);doc.text('UNISAFER | CANDIDATURA COMERCIAL',left,15);doc.setTextColor(25,40,70);y=35;}
+   function footer(){doc.setTextColor(120,135,155);doc.setFontSize(8);doc.text('Unisafer Consultoria Educacional - Página '+pageNumber,left,286);}
+   function newPage(){footer();doc.addPage();pageNumber++;header();}
+   function lines(text,fontSize){doc.setFontSize(fontSize);return doc.splitTextToSize(pdfText(text),maxWidth);}
+   header();
+   doc.setFont('helvetica','normal');doc.setFontSize(9);
+   doc.text('Protocolo: '+payload.submissionId,left,y);y+=6;
+   doc.text('Recebido em: '+new Date(payload.submittedAt).toLocaleString('pt-BR'),left,y);y+=9;
+   for(const [label,key] of fields){
+     const answer=payload.answers[key]||'(não informado)';
+     const labelLines=lines(label,10), answerLines=lines(answer,10);
+     const h=labelLines.length*5.2+answerLines.length*5.2+8;
+     if(y+h>277)newPage();
+     doc.setTextColor(26,54,101);doc.setFont('helvetica','bold');doc.setFontSize(10);
+     doc.text(labelLines,left,y);y+=labelLines.length*5.2+1;
+     doc.setTextColor(40,50,65);doc.setFont('helvetica','normal');doc.setFontSize(10);
+     for(const line of answerLines){if(y+6>276)newPage();doc.text(line,left,y);y+=5.2;}
+     y+=8;
+   }
+   footer();
+   const dataUri=doc.output('datauristring');
+   const pdfBase64=dataUri.slice(dataUri.indexOf(',')+1);
+   if(pdfBase64.length>2100000)throw new Error('O PDF ficou muito grande para enviar. Resuma algumas respostas e tente novamente.');
+   return {pdfBase64,filename:'candidatura-'+safeFilename(payload.answers.nome)+'-'+payload.submissionId.slice(0,8)+'.pdf'};
+ }
+ document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',()=>{if(validate())show(Math.min(current+1,4))}));
+ document.querySelectorAll('[data-prev]').forEach(b=>b.addEventListener('click',()=>show(Math.max(0,current-1))));
+ document.querySelectorAll('.step input,.step textarea,.step select').forEach(el=>el.addEventListener('input',()=>{if(pendingPayload){pendingPayload=null;errorBox.style.display='none'}}));
+ const finish=document.getElementById('finish');
+ finish.addEventListener('click',async()=>{
+   if(sending)return;
+   for(let i=1;i<steps.length;i++)if(!validate(i))return;
+   if(!config.workerUrl||!/^https:\/\//.test(config.workerUrl)||config.workerUrl.startsWith('COLE_AQUI')){showError('O formulário ainda está sendo configurado. Entre em contato com a Unisafer.');return;}
+   if(widgetId===null)maybeRenderTurnstile();
+   if(!token){showError('Confirme a verificação de segurança antes de enviar. Se ela não aparecer, recarregue a página.');return;}
+   errorBox.style.display='none';
+   if(!pendingPayload){
+     const answers=Object.fromEntries(fields.map(([label,key])=>[key,getValue(key)]));
+     pendingPayload={answers,privacyAccepted:document.getElementById('privacyAccepted').checked,
+       website:getValue('website'),submissionId:crypto.randomUUID(),submittedAt:new Date().toISOString()};
+   }
+   sending=true;finish.disabled=true;finish.textContent='Enviando sua candidatura...';
+   try {
+     const pdf=buildPDF(pendingPayload);
+     const res=await fetch(config.workerUrl,{method:'POST',headers:{'Content-Type':'application/json'},
+       body:JSON.stringify({...pendingPayload,...pdf,turnstileToken:token})});
+     let data={};try{data=await res.json()}catch(_){data={}}
+     if(!res.ok||!data.ok)throw new Error(data.error||'Não foi possível enviar. Tente novamente.');
+     document.getElementById('protocol').textContent=data.protocol||pendingPayload.submissionId;
+     form.hidden=true;document.getElementById('progressArea').hidden=true;result.classList.add('visible');
+     window.scrollTo({top:0,behavior:'smooth'});
+   } catch(err){showError((err.message||'Erro no envio.')+' Suas respostas continuam preenchidas nesta página.');}
+   finally{sending=false;finish.disabled=false;finish.textContent='Concluir e enviar candidatura ✓';token='';if(widgetId!==null&&window.turnstile)window.turnstile.reset(widgetId);}
+ });
+ show(0);
+})();
+</script></body></html>
